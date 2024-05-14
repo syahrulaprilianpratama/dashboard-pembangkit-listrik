@@ -4,12 +4,10 @@ import plotly.express as px
 
 st.title("Power Plants in Indonesia")
 
-
 @st.cache_data
 def load_powerplants():
     url = "https://global-power-plants.datasettes.com/global-power-plants/global-power-plants.csv?_sort=rowid&country_long__exact=Indonesia&_size=max"
     return pd.read_csv(url, index_col=0)
-
 
 df = load_powerplants()
 
@@ -17,9 +15,7 @@ st.sidebar.title("Data Science for Energy System Modelling")
 st.sidebar.markdown(
     ":+1: This notebook introduces you to the streamlit library.")
 
-
 hover_data = ['name', 'primary_fuel', "capacity_mw", 'owner']
-
 
 if not df.empty:
     fig = px.scatter_mapbox(
